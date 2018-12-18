@@ -4,6 +4,7 @@ require('./config/config');
 
 
 const express = require ('express');
+const mongoose = require ('mongoose');
 const app = express ();
 const bodyParser = require ('body-parser')
 
@@ -13,41 +14,20 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(require ('./routes/productos'))
+
 app.use(express.static(__dirname + '/public'))
 
-app.get('/producto', function(req,res){
-    res.json('enviado get')
-});
 
-app.post('/producto', function(req,res){
 
-    let body = req.body;
 
-    if (body.titulo === undefined){
-        res.status(400).json({
-            ok:false,
-            message: 'el nombre es necesario'
-        })
+mongoose.connect ('mongodb://gavialus:romimu1111@ds131784.mlab.com:31784/deniuater',{useNewUrlParser: true}, (err,res)=>{
 
-    } else {
+    if (err) throw err;
 
-        res.json({
-            body
-        })
+    console.log('Conectado al servidor de la base de datos 27017')
     }
-});
-
-app.put('/producto/:id', function(req,res){
-
-    let id = req.params.id
-    res.json(
-        id
-    )
-});
-
-app.delete('/', function(req,res){
-    res.json('Hello Word')
-});
+)
 
 app.listen(process.env.PORT,()=>{
     console.log('escuchando en el puerto 3000')
