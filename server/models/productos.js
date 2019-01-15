@@ -11,11 +11,15 @@ let productoSchema = new Schema({
         type: String,
         required: [false, 'El precio es requirido']
     },
+    preciodist:{
+        type: String,
+        required: [false, 'El precio es requirido']
+    },
     descripcion:{
         type: String,
         required: [false, 'La descripción es necesaria']
     },
-    imagen:{
+    imagenes:{
         type: String,
         required: false
     }
