@@ -115,6 +115,7 @@ rp(options)
     .catch(function(err){
         ok:false,
         err
+        
     })
    
     
