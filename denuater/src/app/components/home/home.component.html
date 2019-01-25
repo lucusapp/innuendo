@@ -1,3 +1,10 @@
-<p>
-  home works!
-</p>
+<div class="row">
+  <div class="col">
+    <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="pagina a scrapear">
+  </div>
+</div>
+
+<form class="form-inline my-2 my-lg-0">
+  <input #termino class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" (keypress)="buscar(termino.value)" type="submit">Search</button>
+</form>

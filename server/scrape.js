@@ -37,8 +37,9 @@ rp(options)
             let titulo = $(this).find('.product-name').html();
             let precio = $(this).find('#j-sku-price','.p-price').html();
             let image = $('.img-thumb-item','#j-detail-gallery-main').each(function(){
-               img = $(this).find('img').attr('src')
+               img = $(this).find('img').attr('src');
                imagenes.push(img)
+
             })
             
 
@@ -80,7 +81,7 @@ rp(options)
 
     console.log(producto);
 
-    app.get('/producto', function(req,res){ 
+    app.get('/', function(req,res){ 
         return res.json ({
             ok:true,
             producto
@@ -90,7 +91,7 @@ rp(options)
     
     
     ,
-    app.post('/producto', function(req,res){   
+    app.post('/', function(req,res){   
 
     producto.save((err,productoDB)=>{
      if (err){

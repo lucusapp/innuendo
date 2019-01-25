@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
 
 
 @Component({
@@ -7,20 +8,24 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   constructor(private http:HttpClient) {
 
-      this.http.get('/producto')
+   
+
+      this.http.get('/')
               .subscribe(data=>{
                 console.log(data)
               })
 
 
 
-   }
-
-  ngOnInit() {
+   
   }
+   buscar(termino:String){
+    console.log(termino);
+  }
+
 
 }
