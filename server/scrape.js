@@ -80,7 +80,7 @@ rp(options)
 
     console.log(producto);
 
-    app.get('/producto', function(req,res){ 
+    app.get('/', function(req,res){ 
         return res.json ({
             ok:true,
             producto
@@ -90,7 +90,7 @@ rp(options)
     
     
     ,
-    app.post('/producto', function(req,res){   
+    app.post('/', function(req,res){   
 
     producto.save((err,productoDB)=>{
      if (err){

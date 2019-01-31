@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Component} from '@angular/core';
+import { ScrapeService } from '../../service/scrape.service';
+
 
 
 @Component({
@@ -7,20 +8,16 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor(private http:HttpClient) {
+  constructor(private scrape:ScrapeService) {
 
-      this.http.get('/producto')
-              .subscribe(data=>{
-                console.log(data)
-              })
+      this.scrape.getScrape();
 
 
 
    }
 
-  ngOnInit() {
-  }
+
 
 }

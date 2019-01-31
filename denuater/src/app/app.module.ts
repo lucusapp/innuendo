@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
+import {ScrapeService} from './service/scrape.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ScrapeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
