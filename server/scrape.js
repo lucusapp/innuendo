@@ -21,9 +21,6 @@ app.post('/', async(req,res)=>{
 })
 
 
-
-
-
 let options = {
   
   uri: uri,
@@ -50,21 +47,13 @@ rp(options)
                img = $(this).find('img').attr('src')
                imagenes.push(img)
             })
-            
-
-
-         
                
             
                     for (var i = 0; i < imagenes.length; i++) {
                          rp (imagenes[i]).pipe(fs.createWriteStream(`server/img/${i}.jpg`))
-                    
-                 
-                        
-    
-      
-  
-        
+            
+            
+
 
 
     //    $().each(function(){
@@ -73,11 +62,6 @@ rp(options)
     //     console.log(descrip);
     //    })
 
-
-   
-
-
-   
 
 
     producto = new Producto({

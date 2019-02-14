@@ -2,7 +2,6 @@ const express = require ('express');
 const app = express ();
 
 const Producto = require ('../models/productos');
-
 const cheerio = require ('cheerio');
 const fs = require ('fs');
 const rp = require('request-promise');
