@@ -3,6 +3,7 @@ const express = require ('express');
 const app = express ();
 
 const Producto = require ('./models/productos');
+const Url = require ('./models/url')
 
 
 const cheerio = require ('cheerio');
@@ -11,12 +12,21 @@ const rp = require('request-promise');
 
 
 
+const uri='https://es.aliexpress.com/item/Support-Spanish-Xiaomi-Huami-Amazfit-Stratos-Pace-2-Smart-Watch-men-GPS-PPG-Heart-Rate/32852437830.html?spm=es_lc.10010108.1000013.1.e0c05f65OvuKwq&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.90158.0&scm_id=1007.13339.90158.0&scm-url=1007.13339.90158.0&pvid=e19cf7e4-b98a-4d77-804f-096eb201b322'
+
+
+
+app.post('/', async(req,res)=>{
+    console.log(req.body);
+})
+
+
 
 
 
 let options = {
   
-  uri: 'https://es.aliexpress.com/item/Support-Spanish-Xiaomi-Huami-Amazfit-Stratos-Pace-2-Smart-Watch-men-GPS-PPG-Heart-Rate/32852437830.html?spm=es_lc.10010108.1000013.1.e0c05f65OvuKwq&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.90158.0&scm_id=1007.13339.90158.0&scm-url=1007.13339.90158.0&pvid=e19cf7e4-b98a-4d77-804f-096eb201b322',
+  uri: uri,
   transform: (body)=> cheerio.load(body),
 
   headers: {
@@ -25,14 +35,14 @@ let options = {
 json: true // Automatically parses the JSON string in the response
 };
 
-let imagenes = []
+let imagenes = [];
+
 
 rp(options)
    
     .then(function ($) {
       
      
-
         $('.detail-main').each(function(){
             let titulo = $(this).find('.product-name').html();
             let precio = $(this).find('#j-sku-price','.p-price').html();
@@ -42,7 +52,8 @@ rp(options)
             })
             
 
-            //console.log(imagenes);
+
+         
                
             
                     for (var i = 0; i < imagenes.length; i++) {
@@ -78,7 +89,9 @@ rp(options)
 
 }
 
-    console.log(producto);
+  console.log(producto);
+
+                    
 
     app.get('/', function(req,res){ 
         return res.json ({
@@ -89,25 +102,24 @@ rp(options)
     })
     
     
-    ,
-    app.post('/', function(req,res){   
+    // app.post('/', function(req,res){   
 
-    producto.save((err,productoDB)=>{
-     if (err){
-         return status(400).json({
-             ok:false,
-             err
-            });
-        }  
+    // producto.save((err,productoDB)=>{
+    //  if (err){
+    //      return status(400).json({
+    //          ok:false,
+    //          err
+    //         });
+    //     }  
 
-     return res.json ({
-         ok:true,
-         producto:productoDB
-        });
+    //  return res.json ({
+    //      ok:true,
+    //      producto:productoDB
+    //     });
 
-        }) ;
+    //     }) ;
     
-    })
+    // })
 })
     })
 

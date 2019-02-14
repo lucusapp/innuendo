@@ -1,3 +1,54 @@
-<p>
-  home works!
-</p>
+<div class="row">
+
+  <form [formGroup]='forma' (ngSubmit)="postUrl()" novalidate="novalidate">
+    <div class="form-group">
+      <label for="exampleInputEmail1">URL SCRAPE</label>
+      <input type="text" 
+             class="form-control" 
+             id="termino" 
+             formControlName="url"
+             placeholder="Url Scrape">
+      
+    </div>
+ 
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr >
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>
+       </td>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>fxLayout="row"
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+  <div layout="row center-center">
+    <div *ngFor="let i of imagenes">
+                <img src={{i}} />
+              </div>  
+  </div>
