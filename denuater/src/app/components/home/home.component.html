@@ -1,54 +1,111 @@
-<div class="row">
 
-  <form [formGroup]='forma' (ngSubmit)="postUrl()" novalidate="novalidate">
-    <div class="form-group">
-      <label for="exampleInputEmail1">URL SCRAPE</label>
-      <input type="text" 
-             class="form-control" 
-             id="termino" 
-             formControlName="url"
-             placeholder="Url Scrape">
-      
-    </div>
- 
+            
   
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
-<br>
+  <h4>Busqueda de Productos <small>template</small></h4>
+  <hr>
 
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody >
-      <tr >
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>
-       </td>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>fxLayout="row"
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
-  <div layout="row center-center">
-    <div *ngFor="let i of imagenes">
-                <img src={{i}} />
-              </div>  
+
+  <form [formGroup]="url">
+    <div class="form-group row">
+      <label class="col-2 col-form-label">URL</label>
+        <div class="col-8">
+          <input class="form-control"
+          type="text"
+          placeholder="valor"
+          formControlName="valor">
+        </div>
+      </div>
+    </form>
+
+
+  <form (ngSubmit)="enviarUrl()"> 
+    <div class ="form-group row">
+      <button type="submit" class="btn btn-outline-primary">
+        Enviar
+      </button>
+
+    </div>
+  </form>
+
+
+
+  
+  
+  <hr>
+  
+  
+  <form [formGroup]=forma >
+      <!-- <div class="form-group row">
+          <label class="col-2 col-form-label">Id</label>
+          <div class="col-8">
+            
+            <input class="form-control"
+            type="text"
+            placeholder="id"
+            formControlName="id">
+          </div>
+        </div> -->
+
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Id</label>
+          <div class="col-8">
+            <input class="form-control"
+            type="text"
+            placeholder="ID"
+            formControlName="_id">
+          </div>
+        </div>
+
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Titulo</label>
+      <div class="col-8">
+        
+        <input class="form-control"
+        type="text"
+        placeholder="titulo"
+        formControlName="titulo">
+      </div>
+    </div>
+    
+    
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Precio</label>
+      <div class="col-md-8">
+        <input class="form-control"
+        type="text"
+        placeholder="precio"
+        formControlName="precio">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Caracteristicas</label>
+      <div class="col-md-8">
+        
+        <textarea
+        rows="5"
+        class="form-control"
+        type="caracteristicas"
+        placeholder="caracteristicas"
+        formControlName="caracteristicas">
+      </textarea>
+    </div>
   </div>
+</form>
+
+<form (ngSubmit)="cargar()">
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary">
+        Cargar
+       </button>
+     </div>
+   </div>
+ </form>
+
+
+
+
+  

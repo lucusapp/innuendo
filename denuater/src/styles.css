@@ -67,6 +67,9 @@ hr {
   }
 .fadeIn {
     animation-name: fadeIn;
+};
+.top{
+    margin: 40px
 }
 
 

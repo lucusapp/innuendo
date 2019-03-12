@@ -19,8 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(require ('./routes/productos'))
-app.use('/api/scrape',require ('./scrape'))
+app.use('/api/scrape',require ('./routes/scrape'))
 // app.use(require ('./scrapeold'))
 
 
