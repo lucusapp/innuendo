@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-=======
 import { Component, OnInit} from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { ScrapeService } from '../../service/scrape.service';
@@ -9,7 +5,6 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { productos } from '../../models/termino';
 
 
->>>>>>> deniuater1.0
 
 
 
@@ -18,27 +13,6 @@ import { productos } from '../../models/termino';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-<<<<<<< HEAD
-export class HomeComponent {
-
-  constructor(private http:HttpClient) {
-
-   
-
-      this.http.get('/')
-              .subscribe(data=>{
-                console.log(data)
-              })
-
-
-
-   
-  }
-   buscar(termino:String){
-    console.log(termino);
-  }
-
-=======
 export class HomeComponent implements OnInit{
   
   
@@ -51,7 +25,6 @@ export class HomeComponent implements OnInit{
   productos:productos;
   
   constructor(private scrape:ScrapeService) {
->>>>>>> deniuater1.0
 
       this.scrape.getScrape()
       .subscribe((data)=>{
@@ -84,7 +57,10 @@ export class HomeComponent implements OnInit{
         enviarUrl(){
           this.scrape.postScrape(this.url.value).subscribe(res=>{
             console.log(res);
-          }) 
+          })
+          
+
+        this.forma.reset()
           console.log(this.url.value); 
         }
         

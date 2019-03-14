@@ -7,15 +7,11 @@ const express = require ('express');
 const mongoose = require ('mongoose');
 const app = express ();
 const bodyParser = require ('body-parser');
-<<<<<<< HEAD
-const cors = require ('cors');
-=======
 const cors = require ('cors')
 
 app.use( cors({origin:'http://localhost:4200'}))
 app.options('*', cors());
 
->>>>>>> deniuater1.0
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -23,18 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-<<<<<<< HEAD
-app.use(require ('./routes/productos'))
-app.use(require ('./scrape'))
-app.use(express.static(__dirname + '/public'))
-app.use(cors({origin: 'http://localhost:4200'}));
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-=======
 app.use('/api/scrape',require ('./routes/scrape'))
 // app.use(require ('./scrapeold'))
 
@@ -42,7 +26,6 @@ app.use('/api/scrape',require ('./routes/scrape'))
 
 
 app.use(express.static(__dirname + '/public'))
->>>>>>> deniuater1.0
 
 //app.use(function(req, res, next) {
    // res.header("Access-Control-Allow-Origin",'*');

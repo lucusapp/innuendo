@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-<<<<<<< HEAD
-
-
-=======
 import {map} from 'rxjs/operators';
->>>>>>> deniuater1.0
 
 
 
@@ -15,22 +10,6 @@ import {map} from 'rxjs/operators';
 })
 export class ScrapeService {
 
-<<<<<<< HEAD
-  CallUrl:string ="localhost:3000/producto"
-
-  constructor(private http:HttpClient) {
-
-
-    }
-
-
-  }
-
-
-
-
-
-=======
 
 
 readonly UrlApi = 'http://localhost:3000/api/scrape'
@@ -53,4 +32,3 @@ postScrape(url){
  
 }
 }
->>>>>>> deniuater1.0
