@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { ScrapeService } from '../../service/scrape.service';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-producto',
@@ -9,15 +11,26 @@ import {HttpClient} from '@angular/common/http';
 export class ProductoComponent {
 
 
-  constructor(private http:HttpClient) {
+  url:FormGroup
 
-    this.http.get('http://localhost:3000/producto')
-            .subscribe(data=>{
-              console.log(data)
-            })
+  constructor(private scrape:ScrapeService) {
+
+    
+    this.url= new FormGroup({
+      'valor': new FormControl()
+    })
+    console.log(this.url);
+    
+    // this.scrape.postScrape(this.url.value).subscribe(res=>{
+      //   console.log(res);
+      // })
+    }
+    enviarUrl(){
+    console.log(this.url.value);
+
+  }
+  }
 
 
 
- }
 
-}

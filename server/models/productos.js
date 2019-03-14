@@ -1,6 +1,8 @@
 const mongoose = require ('mongoose');
-
 let Schema = mongoose.Schema;
+
+
+
 
 let productoSchema = new Schema({
     titulo:{
@@ -15,7 +17,7 @@ let productoSchema = new Schema({
         type: String,
         required: [false, 'El precio es requirido']
     },
-    descripcion:{
+    caracteristicas:{
         type: String,
         required: [false, 'La descripción es necesaria']
     },

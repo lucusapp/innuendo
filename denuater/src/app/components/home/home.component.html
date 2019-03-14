@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row">
   <div class="col">
     <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="pagina a scrapear">
@@ -8,3 +9,116 @@
   <input #termino class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
   <button class="btn btn-outline-success my-2 my-sm-0" (keypress)="buscar(termino.value)" type="submit">Search</button>
 </form>
+=======
+
+            
+  
+  <h4>Busqueda de Productos <small>template</small></h4>
+  <hr>
+
+
+  <form [formGroup]="url">
+    <div class="form-group row">
+      <label class="col-2 col-form-label">URL</label>
+        <div class="col-8">
+          <input class="form-control"
+          type="text"
+          placeholder="valor"
+          formControlName="valor">
+        </div>
+      </div>
+    </form>
+
+
+  <form (ngSubmit)="enviarUrl()"> 
+    <div class ="form-group row">
+      <button type="submit" class="btn btn-outline-primary">
+        Enviar
+      </button>
+
+    </div>
+  </form>
+
+
+
+  
+  
+  <hr>
+  
+  
+  <form [formGroup]=forma >
+      <!-- <div class="form-group row">
+          <label class="col-2 col-form-label">Id</label>
+          <div class="col-8">
+            
+            <input class="form-control"
+            type="text"
+            placeholder="id"
+            formControlName="id">
+          </div>
+        </div> -->
+
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Id</label>
+          <div class="col-8">
+            <input class="form-control"
+            type="text"
+            placeholder="ID"
+            formControlName="_id">
+          </div>
+        </div>
+
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Titulo</label>
+      <div class="col-8">
+        
+        <input class="form-control"
+        type="text"
+        placeholder="titulo"
+        formControlName="titulo">
+      </div>
+    </div>
+    
+    
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Precio</label>
+      <div class="col-md-8">
+        <input class="form-control"
+        type="text"
+        placeholder="precio"
+        formControlName="precio">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Caracteristicas</label>
+      <div class="col-md-8">
+        
+        <textarea
+        rows="5"
+        class="form-control"
+        type="caracteristicas"
+        placeholder="caracteristicas"
+        formControlName="caracteristicas">
+      </textarea>
+    </div>
+  </div>
+</form>
+
+<form (ngSubmit)="cargar()">
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary">
+        Cargar
+       </button>
+     </div>
+   </div>
+ </form>
+
+
+
+
+  
+>>>>>>> deniuater1.0
