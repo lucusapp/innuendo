@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/api/scrape',require ('./routes/scrape'))
+//app.use('/api/scrape',require ('./controllers/controllers'))
+
 // app.use(require ('./scrapeold'))
 
 
@@ -35,7 +37,9 @@ app.use(express.static(__dirname + '/public'))
 
 
 
-mongoose.connect ('mongodb://cagonacona:romimu1111@ds035856.mlab.com:35856/santacruz',{useNewUrlParser: true}, (err,res)=>{
+mongoose.connect ('mongodb://cagonacona:romimu1111@ds035856.mlab.com:35856/santacruz',{useNewUrlParser: true},
+
+(err,res)=>{
 
     if (err) throw err;
 

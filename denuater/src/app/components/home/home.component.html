@@ -16,20 +16,47 @@
         </div>
       </div>
     </form>
+    
 
+<div class="container">
 
-  <form (ngSubmit)="enviarUrl()"> 
-    <div class ="form-group row">
-      <button type="submit" class="btn btn-outline-primary">
-        Enviar
-      </button>
+  <div class="row">
+    
+    <form (ngSubmit)="enviarUrl()"> 
+      <div class ="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group">
+          <button type="submit" class="btn btn-outline-primary">
+            Enviar
+          </button>
+        </div>
+        
+      </div>
+    </form>
+    
+    <form (ngSubmit)="cargar()">
+      <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group">
+          <button type="submit" class="btn btn-outline-primary">
+            Cargar
+          </button>
+        </div>
+      </div>
+    </form>
+    <form (ngSubmit)="enviarForm()">
+      <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group">
+          <button type="submit" class="btn btn-outline-primary">
+            CSV
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
-    </div>
-  </form>
-
-
-
-  
   
   <hr>
   
@@ -45,7 +72,9 @@
             formControlName="id">
           </div>
         </div> -->
+      
 
+        
         <div class="form-group row">
           <label class="col-2 col-form-label">Id</label>
           <div class="col-8">
@@ -55,57 +84,45 @@
             formControlName="_id">
           </div>
         </div>
-
-
-    <div class="form-group row">
-      <label class="col-2 col-form-label">Titulo</label>
-      <div class="col-8">
         
-        <input class="form-control"
-        type="text"
-        placeholder="titulo"
-        formControlName="titulo">
-      </div>
-    </div>
-    
-    
-    <div class="form-group row">
-      <label class="col-2 col-form-label">Precio</label>
-      <div class="col-md-8">
-        <input class="form-control"
-        type="text"
-        placeholder="precio"
-        formControlName="precio">
-      </div>
-    </div>
-    
-    <div class="form-group row">
-      <label class="col-2 col-form-label">Caracteristicas</label>
-      <div class="col-md-8">
         
-        <textarea
-        rows="5"
-        class="form-control"
-        type="caracteristicas"
-        placeholder="caracteristicas"
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Titulo</label>
+          <div class="col-8">
+            
+            <input class="form-control"
+            type="text"
+            placeholder="titulo"
+            formControlName="titulo">
+          </div>
+        </div>
+        
+        
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Precio</label>
+          <div class="col-md-8">
+            <input class="form-control"
+            type="text"
+            placeholder="precio"
+            formControlName="precio">
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Caracteristicas</label>
+          <div class="col-md-8">
+            
+            <textarea
+            rows="5"
+            class="form-control"
+            type="caracteristicas"
+            placeholder="caracteristicas"
         formControlName="caracteristicas">
       </textarea>
     </div>
   </div>
 </form>
 
-<form (ngSubmit)="cargar()">
-  <div class="form-group row">
-    <label class="col-2 col-form-label">&nbsp;</label>
-    <div class="input-group col-md-8">
-      <button type="submit" class="btn btn-outline-primary">
-        Cargar
-       </button>
-     </div>
-   </div>
- </form>
 
 
 
-
-  

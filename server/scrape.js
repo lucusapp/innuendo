@@ -8,6 +8,11 @@ const Producto = require ('./models/productos');
 const cheerio = require ('cheerio');
 const fs = require ('fs');
 const rp = require('request-promise');
+const writeStream = fs.createWriteStream ('post.csv')
+
+
+//Write headers
+writeStream.write(`titulo,precio,imagenes`)
 
 
 

@@ -13,18 +13,18 @@ let productoSchema = new Schema({
         type: String,
         required: [false, 'El precio es requirido']
     },
-    preciodist:{
-        type: String,
-        required: [false, 'El precio es requirido']
-    },
+    // preciodist:{
+    //     type: String,
+    //     required: [false, 'El precio es requirido']
+    // },
     caracteristicas:{
         type: String,
         required: [false, 'La descripción es necesaria']
     },
-    imagenes:{
-        type: String,
-        required: false
-    }
+    // imagenes:{
+    //     type: String,
+    //     required: false
+    // }
 
 });
 

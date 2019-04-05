@@ -25,44 +25,52 @@ export class HomeComponent implements OnInit{
   productos:productos;
   
   constructor(private scrape:ScrapeService) {
-
-      this.scrape.getScrape()
-      .subscribe((data)=>{
-       this.productos=(data);
-        // this.imagenes=(data.imagenes).split(',')
-      console.log(data);
-      console.log(this.productos)
-      });
-        // console.log(this.imagenes);
-      
-         this.url= new FormGroup({
-           'valor': new FormControl('')
-          })
-          console.log(this.url.value);
-        }
-        
-        
-        ngOnInit(){
-          
-          this.forma=new FormGroup({
-            '_id': new FormControl(''),
-            'titulo': new FormControl(''),
-            'precio': new FormControl(''),
-            'caracteristicas': new FormControl('')
-            
-          })     
-        }
-        
-        
-        enviarUrl(){
+    
+    // console.log(this.imagenes);
+    
+    this.url= new FormGroup({
+      'valor': new FormControl('')
+    })
+    console.log(this.url.value);
+    this.forma=new FormGroup({
+      '_id': new FormControl(''),
+      'titulo': new FormControl(''),
+      'precio': new FormControl(''),
+      'caracteristicas': new FormControl('')
+    })     
+    console.log(this.forma.value);
+  }
+  
+  
+  ngOnInit(){
+    
+  }
+  
+  cargar(){
+    this.scrape.getScrape()
+    .subscribe((data)=>{
+     this.productos=(data);
+      // this.imagenes=(data.imagenes).split(',')
+    console.log(this.productos);
+    this.forma.setValue(this.productos)
+  });
+  }
+  
+  enviarUrl(){
           this.scrape.postScrape(this.url.value).subscribe(res=>{
             console.log(res);
           })
           
-
         this.forma.reset()
           console.log(this.url.value); 
         }
+
+   enviarForm(){
+    console.log(this.forma.value);
+    this.scrape.postCsv(this.forma.value).subscribe(res=>{
+      console.log(res);
+    })
+  }
         
         
         
@@ -87,10 +95,6 @@ export class HomeComponent implements OnInit{
             
             //   })
             
-            cargar(){
-              console.log(this.productos);
-              this.forma.setValue(this.productos)
-        }
         //   console.log(this.forma.value);
         // }
         
