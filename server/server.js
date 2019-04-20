@@ -30,7 +30,12 @@ app.use('/api/scrape',require ('./routes/scrape'))
 
 
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/dist/DENIUATER'))
+
+app.get('*', function(req,res){
+    res.sendFile(path.join(__dirname + '/dist/DENIUATER/index.html'));
+
+})
 
 //app.use(function(req, res, next) {
    // res.header("Access-Control-Allow-Origin",'*');
