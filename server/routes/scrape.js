@@ -7,13 +7,12 @@ const Controllers = require('../controllers/controllers')
 
 
 const cheerio = require ('cheerio');
-const fs = require ('fs');
 const rp = require('request-promise');
+const fs = require ('fs');
 const writeStream = fs.createWriteStream ('post.csv')
 
 
-//Write headers
-writeStream.write(`titulo,precio,caracteristicas,\n`)
+
 
 
 
@@ -28,60 +27,69 @@ app.post('/', async (req,res)=>{
             url:url,
             transform: (body)=> cheerio.load(body),
             
+            
             headers: {
-                'User-Agent': 'Request-Promise'
+                'User-Agent': 'Request-Promise',
+                // "Content-Type": "text/html;charset=UTF-8"
             },
             
             json: true // Automatically parses the JSON string in the response
         };
-        //console.log(url);
-        
-    let imagenes = [];
-    let propiedades = []
-    
-    
- await  rp(options)
-    
-    .then(function ($) {
+      
+      //  console.log(options);
+  
+       
+       
+       await  rp(options)
+       
+       .then(function ($) {
+       
            
-        $('.detail-main').each(function(){
-            let titulo = $(this).find('.product-name').html();
-            let precio = $(this).find('#j-sku-price','.p-price').html();
-            let image = $('.img-thumb-item','#j-detail-gallery-main').each(function(){
-                img = $(this).find('img').attr('src').replace('_50x50.jpg','_250x250.jpg')
-                imagenes.push(img)
-        });
-            
-            let caracteristicas=[]
-            
-            
-        $('.ui-box-body').each((i,li)=>{
+        $('#j-detail-page')
+
+          .each(function(){
+               let titulo = $(this).find('.product-name').text();
+               let precio = $(this).find('#j-sku-price','.p-price').html();
+               let imagenes = []
+              $('.img-thumb-item','#j-detail-gallery-main').each(function(){
+                   img = $(this).find('img').attr('src').replace('_50x50.jpg','_250x250.jpg')
+                   imagenes.push(img)
+                 // console.log(img);
+                   for (var i = 0; i < imagenes.length; i++) {
+                       rp (imagenes[i]).pipe(fs.createWriteStream(`server/img/${i}.jpg`))                                                 
+                       }    
+            });
+                let caracteristicas=[]  
+
+            $('.ui-box').each((i,li)=>{
                 let propiedad=$(li)
                 .find('.property-item')
                 .text()
                 .replace(/\s\s+/g, ';')
                 .replace(/:;/g,':')
                 .split(';')
-                         
-                caracteristicas.push(propiedad)
-                
-        });            
+                console.log(propiedad);        
+                caracteristicas.push(propiedad)               
+            });
+
+   
             
-        for (var i = 0; i < imagenes.length; i++) {
 
-            rp (imagenes[i]).pipe(fs.createWriteStream(`server/img/${i}.jpg`))
-                                                   
-        }    
+            
+             
+     
 
-        producto = new Producto({
-            titulo,
-            precio,
-            // imagenes,
-            caracteristicas            
-        })                                  
+             
+            producto = new Producto({
+             titulo,
+             precio,
+             imagenes,
+             caracteristicas,
+                  
+            })                                  
             console.log(producto);
-        })  
-    })   
+            })  
+        })   
         
 
     .catch(function(err){
@@ -110,10 +118,7 @@ app.post('/', async (req,res)=>{
   // request({url,encoding:'binary'},(err,res,body)=>{
   //    if(!err && res.statusCode == 200) {
   //       let $ = cheerio.load(body)
-  //                //console.log(body)
-
-             
-  
+  //                //console.log(body)            
   //      })
  
   //       $('#j-sku-price','.product-price-area').each(function(){

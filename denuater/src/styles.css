@@ -71,6 +71,11 @@ hr {
 .top{
     margin: 40px
 }
+.niuater{
+    border: 1px solid green;
+    height: 150px;
+    align-items: stretch
+}
 
 
  

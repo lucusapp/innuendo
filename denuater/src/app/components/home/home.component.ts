@@ -11,19 +11,17 @@ import { productos } from '../../models/termino';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  
 })
 export class HomeComponent implements OnInit{
   
   
-  imagenes:string[]=[]
-  
-  
-  
+ 
+  imagenes:any[]=[]
   forma:FormGroup;
   url:FormGroup;
-  productos:productos;
-  
+  productos:any []=[];
+ 
   constructor(private scrape:ScrapeService) {
     
     // console.log(this.imagenes);
@@ -32,15 +30,20 @@ export class HomeComponent implements OnInit{
       'valor': new FormControl('')
     })
     console.log(this.url.value);
+
     this.forma=new FormGroup({
       '_id': new FormControl(''),
+      'accion': new FormControl('add'),
       'titulo': new FormControl(''),
+      'marca': new FormControl(''),
       'precio': new FormControl(''),
-      'caracteristicas': new FormControl('')
+      'categoria': new FormControl(''),
+      'caracteristicas': new FormControl(''),
+      'imagenes': new FormControl('')
     })     
     console.log(this.forma.value);
   }
-  
+ 
   
   ngOnInit(){
     
@@ -50,9 +53,11 @@ export class HomeComponent implements OnInit{
     this.scrape.getScrape()
     .subscribe((data)=>{
      this.productos=(data);
-      // this.imagenes=(data.imagenes).split(',')
+     this.imagenes=(data.imagenes).split(',')
     console.log(this.productos);
-    this.forma.setValue(this.productos)
+   // console.log(this.imagenes);
+    this.forma.patchValue(this.productos)
+    this.forma.setValue(this.imagenes)
   });
   }
   
@@ -72,7 +77,7 @@ export class HomeComponent implements OnInit{
     })
   }
         
-        
+       
         
         // this.forma=new FormGroup({
           //  // 'id': new FormControl(this.productos._id),

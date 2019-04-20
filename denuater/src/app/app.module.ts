@@ -8,19 +8,23 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProductoComponent } from './components/producto/producto.component';
+import { EbayComponent } from './components/ebay/ebay.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 
 
-import {ScrapeService} from './service/scrape.service'
+import {ScrapeService} from './service/scrape.service';
+import { InventarioComponent } from './components/ebay/inventario/inventario.component';
+import { PedidosComponent } from './components/ebay/inventario/pedidos.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProductoComponent,
+    EbayComponent,
     NavbarComponent,
+    InventarioComponent,
+    PedidosComponent,
 
   
   ],

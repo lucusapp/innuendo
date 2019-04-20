@@ -5,6 +5,11 @@ let Schema = mongoose.Schema;
 
 
 let productoSchema = new Schema({
+    accion:{
+        type: String,
+        required:[true, 'La accion es requerida'],
+        default: 'add'
+    },
     titulo:{
         type: String,
         required: [false, 'El título es necesario']
@@ -13,18 +18,22 @@ let productoSchema = new Schema({
         type: String,
         required: [false, 'El precio es requirido']
     },
-    // preciodist:{
-    //     type: String,
-    //     required: [false, 'El precio es requirido']
-    // },
+    categoria:{
+        type: String,
+        required: [true, 'La categoria es requerida']
+    },
+    marca:{
+       type: String,
+       required: [false, 'El precio es requirido']
+     },
     caracteristicas:{
         type: String,
         required: [false, 'La descripción es necesaria']
     },
-    // imagenes:{
-    //     type: String,
-    //     required: false
-    // }
+    imagenes:{
+        type: String,
+        required: false
+    }
 
 });
 

@@ -8,6 +8,7 @@ const mongoose = require ('mongoose');
 const app = express ();
 const bodyParser = require ('body-parser');
 const cors = require ('cors')
+const path = require ('path')
 
 app.use( cors({origin:'http://localhost:4200'}))
 app.options('*', cors());
@@ -18,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
  
 // parse application/json
 app.use(bodyParser.json())
+
+
 
 app.use('/api/scrape',require ('./routes/scrape'))
 //app.use('/api/scrape',require ('./controllers/controllers'))
