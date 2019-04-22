@@ -30,10 +30,10 @@ app.use('/api/scrape',require ('./routes/scrape'))
 
 
 
-app.use(express.static(__dirname + '/dist/DENIUATER'))
+app.use(express.static(__dirname + '/dist/denuater'))
 
 app.get('*', function(req,res){
-    res.sendFile(path.join(__dirname + '/dist/DENIUATER/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/denuater/index.html'));
 
 })
 
